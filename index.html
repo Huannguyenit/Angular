@@ -10,9 +10,14 @@
     </head>
     <body ng-app="Main">
         <div ng-controller="MainController as Gems">
-            <h1>{{Gems.product.name}}</h1>
-            <h2>{{Gems.product.price}}</h2>
-            <p>{{Gems.product.description}}</p>
+            <div ng-repeat="gem in Gems.product">
+                <div ng-show="!gem.soldOut">
+                    <h1>{{gem.name}}</h1>
+                    <h2>{{gem.price}}</h2>
+                    <p>{{gem.description}}</p>
+                    <button ng-show="gem.canPurcharse">Add to cart</button>
+                </div>
+            </div>
         </div>
     </body>
 </html>
